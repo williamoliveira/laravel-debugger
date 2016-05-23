@@ -1,7 +1,7 @@
 [WIP] Simple real-time Laravel Debugger with Socket.io
 
 ![logs](http://i.imgur.com/rnixkI0.png)
-![queries](http://i.imgur.com/1NRq5av.png)
+![queries](http://i.imgur.com/Tc2uyA8.png)
 
 # Dependencies
 - nodejs and npm
