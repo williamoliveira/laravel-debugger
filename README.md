@@ -1,0 +1,16 @@
+[WIP] Simple real-time Laravel Debugger with Socket.io
+
+# Dependencies
+- nodejs and npm
+
+# Installation
+
+Require `"williamoliveira/laravel-debugger": "dev-master"` in Composer
+
+Add the provider `Williamoliveira\LaravelDebugger\Provider::class,`
+
+Run `npm install --prefix vendor/williamoliveira/laravel-debugger/server`
+
+# Usage
+
+Run `node vendor/williamoliveira/laravel-debugger/server/index.js` when you need it
