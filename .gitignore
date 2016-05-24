@@ -1,0 +1,4 @@
+server/node_modules
+server/front/node_modules
+.idea
+composer.lock
