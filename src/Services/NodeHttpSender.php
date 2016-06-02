@@ -19,12 +19,19 @@ class NodeHttpSender implements Sender
     
     public function send($channel, $data)
     {
-        return $this->httpClient->post('http://localhost:3000/new-message', [
-            'json' => [
-                'channel' => $channel,
-                'data' => $data
-            ]
-        ]);
+        try{
+            return $this->httpClient->post('http://localhost:3000/new-message', [
+                'json' => [
+                    'channel' => $channel,
+                    'data' => $data
+                ]
+            ]);
+        }
+        catch (\Exception $ex){
+            //shhh
+        }
+
+        return null;
     }
 
 
