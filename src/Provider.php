@@ -1,7 +1,8 @@
 <?php namespace Williamoliveira\LaravelDebugger;
 
-use Illuminate\Contracts\Events\Dispatcher;
+use Illuminate\Database\Events\QueryExecuted;
 use Illuminate\Foundation\Support\Providers\EventServiceProvider;
+use Illuminate\Log\Events\MessageLogged;
 use Williamoliveira\LaravelDebugger\Listeners\LogListener;
 use Williamoliveira\LaravelDebugger\Listeners\QueryListener;
 use Williamoliveira\LaravelDebugger\Services\NodeHttpSender;
@@ -15,14 +16,9 @@ class Provider extends EventServiceProvider
 {
 
     protected $listen = [
-        'illuminate.query' => [QueryListener::class],
-        'illuminate.log' => [LogListener::class]
+        QueryExecuted::class => [ QueryListener::class ],
+        MessageLogged::class => [ LogListener::class ]
     ];
-
-    public function boot(Dispatcher $events)
-    {
-        parent::boot($events);
-    }
 
     public function register()
     {

@@ -2,6 +2,7 @@
 
 namespace Williamoliveira\LaravelDebugger\Listeners;
 
+use Illuminate\Database\Events\QueryExecuted;
 use Williamoliveira\LaravelDebugger\Services\Sender;
 
 class QueryListener
@@ -20,11 +21,17 @@ class QueryListener
         $this->sender = $sender;
     }
 
-
-    public function handle($sql, $bindings, $time, $connectionName)
+    public function handle(QueryExecuted $event)
     {
-        $preparedSql = $this->sprintfSql($sql, $bindings);
-        $data = compact('preparedSql', 'sql', 'bindings', 'time', 'connectionName');
+        $preparedSql = $this->sprintfSql($event->sql, $event->bindings);
+
+        $data = [
+            'preparedSql' => $preparedSql,
+            'sql' => $event->sql,
+            'bindings' => $event->bindings,
+            'time' => $event->time,
+            'connectionName' => $event->connectionName,
+        ];
 
         $this->sender->send($this->channel, $data);
     }
