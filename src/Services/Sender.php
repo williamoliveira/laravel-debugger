@@ -2,7 +2,6 @@
 
 namespace Williamoliveira\LaravelDebugger\Services;
 
-
 interface Sender
 {
     /**
