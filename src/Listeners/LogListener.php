@@ -7,7 +7,6 @@ use Williamoliveira\LaravelDebugger\Services\Sender;
 
 class LogListener
 {
-
     protected $channel = 'laravel-debugger:new-log';
     
     protected $sender;
