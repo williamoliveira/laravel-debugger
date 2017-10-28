@@ -1,4 +1,6 @@
-<?php namespace Williamoliveira\LaravelDebugger;
+<?php
+
+namespace Williamoliveira\LaravelDebugger;
 
 use Illuminate\Database\Events\QueryExecuted;
 use Illuminate\Foundation\Support\Providers\EventServiceProvider;
@@ -14,7 +16,6 @@ use Williamoliveira\LaravelDebugger\Services\Sender;
  */
 class Provider extends EventServiceProvider
 {
-
     protected $listen = [
         QueryExecuted::class => [ QueryListener::class ],
         MessageLogged::class => [ LogListener::class ]
@@ -24,5 +25,4 @@ class Provider extends EventServiceProvider
     {
         $this->app->singleton(Sender::class, NodeHttpSender::class);
     }
-    
 }
