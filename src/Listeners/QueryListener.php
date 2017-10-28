@@ -40,7 +40,6 @@ class QueryListener
     {
         // Process the sql and the bindings:
         foreach ($bindings as $i => $binding) {
-
             if ($binding instanceof \DateTime) {
                 $bindings[$i] = $binding->format('\'Y-m-d H:i:s\'');
                 continue;
