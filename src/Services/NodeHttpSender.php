@@ -2,10 +2,8 @@
 
 namespace Williamoliveira\LaravelDebugger\Services;
 
-
 class NodeHttpSender implements Sender
 {
-
     protected $httpClient;
 
     /**
@@ -33,6 +31,4 @@ class NodeHttpSender implements Sender
 
         return null;
     }
-
-
 }
